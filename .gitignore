@@ -1,4 +1,6 @@
 .DS_Store
+platforms
+plugins
 node_modules
 /www
 
@@ -20,3 +22,5 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
+
+out.js

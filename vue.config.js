@@ -6,6 +6,7 @@ const path = require('path')
 let config = {
 
     outputDir:path.resolve(__dirname, 'www'),
+    baseUrl: process.env.NODE_ENV === 'production' ? './' : '/',
 
     // 链式配置
     chainWebpack:(config) =>{

@@ -37,6 +37,8 @@
     </head>
     <body>
         <div id="app"></div>
+        <% if (NODE_ENV === "production") { %>
         <script type="text/javascript" src="cordova.js"></script>
+        <% } %>
     </body>
 </html>
