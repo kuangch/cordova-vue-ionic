@@ -13,11 +13,19 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "@angular/compiler": "^7.0.1",
+    "@angular/core": "^7.0.1",
+    "@ionic-native/camera": "^4.16.0",
+    "@ionic-native/core": "^4.16.0",
     "convenience-image": "^0.1.2",
     "cordova-android": "6.3.0",
+    "cordova-plugin-camera": "^4.0.3",
     "cordova-plugin-whitelist": "^1.3.3",
     "jquery": "^3.3.1",
-    "vue": "^2.5.17"
+    "rxjs": "^6.3.3",
+    "rxjs-compat": "^6.3.3",
+    "vue": "^2.5.17",
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.5",
@@ -39,7 +47,8 @@
   ],
   "cordova": {
     "plugins": {
-      "cordova-plugin-whitelist": {}
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-camera": {}
     },
     "platforms": [
       "android"

@@ -1,52 +1,33 @@
 <template>
-  <div id="app">
-    <!--<img alt="Vue logo" src="./assets/logo.png">-->
-    <img alt="Vue logo" src="../../assets/dollar.png">
-    <br/>
-    <img alt="Vue logo" src="../../assets/plus-circle.png">
-
-    <HelloWorld msg="Welcome"/>
-    <button @click="goHome">home</button>
-    <button @click="goAbout">about</button>
-  </div>
+  <ion-app>
+  <ion-tabs>
+    <ion-tab label="发现" icon="compass">
+      <Photo/>
+    </ion-tab>
+    <ion-tab selected="true" label="首页" icon="home">
+      <HelloWorld/>
+    </ion-tab>
+    <ion-tab label="设置" icon="settings">
+      <settings/>
+    </ion-tab>
+  </ion-tabs>
+</ion-app>
 </template>
 
 <script>
-import HelloWorld from '../../components/HelloWorld.vue'
-import jquery from 'jquery'
-import CI from 'convenience-image'
+import HelloWorld from '../../pages/first/app'
+import Settings from '../../components/setting'
+import Photo from '../../components/photo'
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    HelloWorld
+    HelloWorld,
+    Settings,
+    Photo
   },
-  methods: {
-     goHome: function () {
-         window.open( 'home.html')
-     },
-     goAbout: function () {
-         window.open( 'about.html')
-     }
-  }
-}
-
-if(true){
-    console.log('kuangch')
-}else {
-    var x = 'kuangch-unreachable'
-}
-
-
+};
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
