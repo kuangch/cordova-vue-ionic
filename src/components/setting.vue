@@ -1,24 +1,18 @@
 <template>
-<ion-content>
-    <div id="app">
-        <ion-button @click="alert" shape="round"  fill="outline">alert</ion-button>
-        <ion-button @click="actionSheet" shape="round"  fill="outline">actionSheet</ion-button>
-        <ion-list>
-            <ion-item v-for="item of items" :key="item.id">
-                <ion-avatar slot="start">
-                <img src="../assets/logo.png"/>
-                </ion-avatar>
-                <ion-label>
-                <h2>{{item.name}}</h2>
-                <h3>{{item.addr}}</h3>
-                <p>{{item.desc}}</p>
-                </ion-label>
-            </ion-item>
-        </ion-list>
-    </div>
-    <ion-alert-controller/>
-    <ion-action-sheet-controller/>
-    <ion-loading-controller/>
+<ion-content id="app">
+  <ion-button @click="alert" shape="round"  fill="outline">alert</ion-button>
+  <ion-list>
+      <ion-item v-for="item of items" :key="item.id">
+          <ion-avatar slot="start">
+          <img src="../assets/logo.png"/>
+          </ion-avatar>
+          <ion-label>
+          <h2>{{item.name}}</h2>
+          <h3>{{item.addr}}</h3>
+          <p>{{item.desc}}</p>
+          </ion-label>
+      </ion-item>
+  </ion-list>
 </ion-content> 
 </template>
 
@@ -95,8 +89,7 @@ export default {
   },
   methods: {
     alert: async function() {
-
-      const _THIS = this  
+      const _THIS = this;
       const alertController = document.querySelector("ion-alert-controller");
       await alertController.componentOnReady();
 
@@ -115,7 +108,7 @@ export default {
             text: "确定",
             handler: () => {
               console.log("确定 clicked");
-              _THIS.loading()
+              _THIS.loading();
             }
           }
         ]
@@ -123,68 +116,12 @@ export default {
       return await alert.present();
     },
     loading: async function() {
-      const loadingController = document.querySelector(
-        "ion-loading-controller"
-      );
-      await loadingController.componentOnReady();
-
-      const loading = await loadingController.create({
-        message: "loding",
-        mode:'ios',
+      this.$loading({
+        message: "加载中",
+        mode: "md",
         duration: 2000
-      });
-      return await loading.present();
+      })
     },
-    actionSheet: async function() {
-      const actionSheetController = document.querySelector(
-        "ion-action-sheet-controller"
-      );
-      await actionSheetController.componentOnReady();
-
-      const actionSheet = await actionSheetController.create({
-        header: "Albums",
-        buttons: [
-          {
-            text: "Delete",
-            role: "destructive",
-            icon: "trash",
-            handler: () => {
-              console.log("Delete clicked");
-            }
-          },
-          {
-            text: "Share",
-            icon: "share",
-            handler: () => {
-              console.log("Share clicked");
-            }
-          },
-          {
-            text: "Play (open modal)",
-            icon: "arrow-dropright-circle",
-            handler: () => {
-              console.log("Play clicked");
-            }
-          },
-          {
-            text: "Favorite",
-            icon: "heart",
-            handler: () => {
-              console.log("Favorite clicked");
-            }
-          },
-          {
-            text: "Cancel",
-            icon: "close",
-            role: "cancel",
-            handler: () => {
-              console.log("Cancel clicked");
-            }
-          }
-        ]
-      });
-      await actionSheet.present();
-    }
   }
 };
 </script>

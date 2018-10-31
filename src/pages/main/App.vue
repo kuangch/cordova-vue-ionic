@@ -11,6 +11,10 @@
       <settings/>
     </ion-tab>
   </ion-tabs>
+  <ion-alert-controller/>
+  <ion-action-sheet-controller/>
+  <ion-loading-controller/>
+  <ion-toast-controller/>
 </ion-app>
 </template>
 

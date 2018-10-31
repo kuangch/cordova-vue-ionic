@@ -9,7 +9,7 @@
 
 <script>
 
-import {Camera} from '@ionic-native/camera';
+// import {Camera} from '@ionic-native/camera';
 
 export default {
   name: "photo",
@@ -20,17 +20,69 @@ export default {
     };
   },
   methods: {
+    getPicture: function(options){
+        const _THIS = this
+
+        if(!navigator.camera){
+            _THIS.$toast({
+                message: "设备故障",
+                showCloseButton:true,
+                closeButtonText:'关闭',
+                duration: 4000
+            })
+            return;
+        }
+        navigator.camera.getPicture(function(image){
+            let base64Image = 'data:image/jpeg;base64,' + image;
+            _THIS.img = base64Image
+        },function(err){
+            _THIS.$toast({
+                //The message is provided by the device's native code.
+                message: err
+            })
+        },Object.assign({
+            // sourceType:Camera.PictureSourceType.CAMERA,
+            destinationType:Camera.DestinationType.DATA_URL,
+            quality:50,
+            targetWidth: 480,
+            targetHeight: 640,
+            saveToPhotoAlbum: false
+        
+        },options || {}))
+    },  
     take: function() {
         const _THIS = this
-        _THIS.btn = '启动相机...'
-        Camera.getPicture().then(data=>{
-            let base64Image = 'data:image/jpeg;base64,' + data;
-            _THIS.img = base64Image
-        }).catch(e=>{
-            _THIS.btn = '拍照'
+
+        _THIS.$actionSheet({
+            buttons: [{
+                text: "相机",
+                role: "destructive",
+                icon: "camera",
+                handler: () => {
+                    _THIS.getPicture({
+                        sourceType:1,
+                        saveToPhotoAlbum: true
+                    })
+                }
+            },
+            {
+                text: "相册",
+                role: "destructive",
+                icon: "image",
+                handler: () => {
+                    _THIS.getPicture({
+                        sourceType:2,
+                    })
+                }
+            },
+            {
+                text: "取消",
+                icon: "close",
+                role: "cancel",
+            }]
         })
     }
-  }
+  },
 };
 </script>
 
