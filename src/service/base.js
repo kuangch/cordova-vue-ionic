@@ -53,6 +53,26 @@ Base.install = function (Vue) {
     return await toast.present();
   }
 
+  Vue.prototype.$alert = async function(options) {
+    const alertController = document.querySelector("ion-alert-controller");
+    await alertController.componentOnReady();
+
+    const alert = await alertController.create(Object.assign({
+      header: "",
+      subHeader: "",
+      message: "",
+      buttons: [
+        {
+          text: "确定",
+          handler: () => {
+            
+          }
+        }
+      ]
+    },options || {}));
+    return await alert.present();
+  }
+
 }
 
 export default Base

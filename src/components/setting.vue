@@ -1,8 +1,14 @@
 <template>
-<ion-content id="app">
-  <ion-button @click="alert" shape="round"  fill="outline">alert</ion-button>
-  <ion-list>
-      <ion-item v-for="item of items" :key="item.id">
+<div id="app">
+  <ion-chip>
+    <ion-avatar>
+      <img @click="loading" src="https://avatars0.githubusercontent.com/u/8882618">
+    </ion-avatar>
+    <ion-label>kuangch</ion-label>
+  </ion-chip>
+  <ion-content fullscreen>
+  <ion-list lines="inset">
+      <ion-item @click="detail(item)" detail v-for="item of items" :key="item.id">
           <ion-avatar slot="start">
           <img src="../assets/logo.png"/>
           </ion-avatar>
@@ -13,7 +19,8 @@
           </ion-label>
       </ion-item>
   </ion-list>
-</ion-content> 
+  </ion-content>
+</div> 
 </template>
 
 <script>
@@ -37,37 +44,37 @@ export default {
           desc: "软件开发，web前端，wp..."
         },
         {
-          name: "kuangch3",
+          name: "kuangch4",
+          addr: "hubei wuhan4",
+          desc: "软件开发，web前端，wp..."
+        },
+        {
+          name: "kuangch5",
+          addr: "hubei wuhan5",
+          desc: "软件开发，web前端，wp..."
+        },
+        {
+          name: "kuangch6",
+          addr: "hubei wuhan6",
+          desc: "软件开发，web前端，wp..."
+        },
+        {
+          name: "kuangch7",
           addr: "hubei wuhan3",
           desc: "软件开发，web前端，wp..."
         },
         {
-          name: "kuangch3",
+          name: "kuangch8",
           addr: "hubei wuhan3",
           desc: "软件开发，web前端，wp..."
         },
         {
-          name: "kuangch3",
+          name: "kuangch9",
           addr: "hubei wuhan3",
           desc: "软件开发，web前端，wp..."
         },
         {
-          name: "kuangch3",
-          addr: "hubei wuhan3",
-          desc: "软件开发，web前端，wp..."
-        },
-        {
-          name: "kuangch3",
-          addr: "hubei wuhan3",
-          desc: "软件开发，web前端，wp..."
-        },
-        {
-          name: "kuangch3",
-          addr: "hubei wuhan3",
-          desc: "软件开发，web前端，wp..."
-        },
-        {
-          name: "kuangch3",
+          name: "kuangch10",
           addr: "hubei wuhan3",
           desc: "软件开发，web前端，wp..."
         }
@@ -78,7 +85,6 @@ export default {
   mounted: function() {
     var content = document.querySelector("ion-content");
     content.scrollEvents = true;
-    content.fullscreen = true;
     content.addEventListener("ionScrollStart", () =>
       console.log("scroll start")
     );
@@ -88,37 +94,17 @@ export default {
     content.addEventListener("ionScrollEnd", () => console.log("scroll end"));
   },
   methods: {
-    alert: async function() {
-      const _THIS = this;
-      const alertController = document.querySelector("ion-alert-controller");
-      await alertController.componentOnReady();
-
-      const alert = await alertController.create({
-        header: "Alert",
-        subHeader: "加载",
-        message: "下载..",
-        buttons: [
-          {
-            text: "取消",
-            handler: () => {
-              console.log("Cancel clicked");
-            }
-          },
-          {
-            text: "确定",
-            handler: () => {
-              console.log("确定 clicked");
-              _THIS.loading();
-            }
-          }
-        ]
-      });
-      return await alert.present();
+    detail: function(item) {
+      this.$alert({
+        header: item.name,
+        subHeader: item.addr,
+        message: item.desc,
+      })
     },
-    loading: async function() {
+    loading: function() {
       this.$loading({
-        message: "加载中",
-        mode: "md",
+        message: 'loading',
+        mode: "ios",
         duration: 2000
       })
     },
