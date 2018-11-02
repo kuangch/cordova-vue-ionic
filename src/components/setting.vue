@@ -1,12 +1,12 @@
 <template>
-<div id="app">
+<ion-tab label="设置" icon="settings">
   <ion-chip>
     <ion-avatar>
       <img @click="loading" src="https://avatars0.githubusercontent.com/u/8882618">
     </ion-avatar>
     <ion-label>kuangch</ion-label>
   </ion-chip>
-  <ion-content fullscreen>
+  <ion-content>
   <ion-list lines="inset">
       <ion-item @click="detail(item)" detail v-for="item of items" :key="item.id">
           <ion-avatar slot="start">
@@ -20,7 +20,7 @@
       </ion-item>
   </ion-list>
   </ion-content>
-</div> 
+</ion-tab> 
 </template>
 
 <script>

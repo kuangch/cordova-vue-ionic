@@ -1,15 +1,11 @@
 <template>
   <ion-app>
   <ion-tabs>
-    <ion-tab label="发现" icon="compass">
-      <Photo/>
-    </ion-tab>
+    <Photo/>
     <ion-tab selected="true" label="首页" icon="home">
       <HelloWorld/>
     </ion-tab>
-    <ion-tab label="设置" icon="settings">
-      <settings/>
-    </ion-tab>
+    <settings/>
   </ion-tabs>
   <ion-alert-controller/>
   <ion-action-sheet-controller/>

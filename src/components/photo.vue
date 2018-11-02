@@ -1,10 +1,10 @@
 <template>
-    <div>
+    <ion-tab label="发现" icon="compass">
         <ion-button @click="take">{{btn}}</ion-button>
         <div class="container">
             <convenience-image alignment="top-left" :src-nor="img"/>
         </div>
-    </div>
+    </ion-tab>
 </template>
 
 <script>
