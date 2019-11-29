@@ -14,10 +14,6 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
-    "@angular/compiler": "^7.0.1",
-    "@angular/core": "^7.0.1",
-    "@ionic-native/camera": "^4.16.0",
-    "@ionic-native/core": "^4.16.0",
     "convenience-image": "^0.1.2",
     "cordova-android": "6.3.0",
     "cordova-plugin-camera": "^4.0.3",
@@ -36,6 +32,7 @@
     "@vue/test-utils": "^1.0.0-beta.20",
     "chai": "^4.1.2",
     "compression-webpack-plugin": "^2.0.0",
+    "scriptjs": "^2.5.9",
     "uglify-es": "^3.3.9",
     "uglifyjs-webpack-plugin": "^2.0.1",
     "url-loader": "^1.1.2",

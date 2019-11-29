@@ -27,24 +27,24 @@ let config = {
 
 
         // 代码分割
-        const commonOptions = {
-            chunks: 'all',
-            reuseExistingChunk: true
-        }
-        config.optimization.splitChunks({
-            // chunks: 'initial',
-            // automaticNameDelimiter: '-',
-            // name: true,
-            cacheGroups: {
-                dll: {
-                    test: /[\\/]node_modules[\\/](vue|jquery)[\\/]/,
-                    name: "chunk-vendors",
-                    priority: 10,
-                    ...commonOptions
-                },
+        // const commonOptions = {
+        //     chunks: 'all',
+        //     reuseExistingChunk: true
+        // }
+        // config.optimization.splitChunks({
+        //     // chunks: 'initial',
+        //     // automaticNameDelimiter: '-',
+        //     // name: true,
+        //     cacheGroups: {
+        //         dll: {
+        //             test: /[\\/]node_modules[\\/]/,
+        //             name: "chunk-vendors",
+        //             priority: 10,
+        //             ...commonOptions
+        //         },
 
-            }
-        })
+        //     }
+        // })
 
     },
 

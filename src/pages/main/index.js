@@ -2,6 +2,10 @@ import Vue from 'vue'
 import App from './App'
 import Base from '../../service/base'
 
+// document.body.classList.remove('platform-ios');
+// document.body.classList.remove('platform-android');
+// document.body.classList.add('platform-android');
+
 Vue.config.productionTip = false
 
 Vue.config.ignoredElements = [
